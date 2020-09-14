@@ -6,3 +6,7 @@ h3 {
   color: #000;
   font-weight: bold;
 }
+page{
+  --color:#e03a51;
+  --bg: #e03a51;
+}

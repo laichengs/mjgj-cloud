@@ -2,7 +2,7 @@
 	<h3 class="box-title">居家必选</h3>
 	<view class="box-list">
 		<block wx:for="{{items}}" wx:key="{{item.id}}">
-			<view class="item">
+			<view class="item"  bindtap="goToItem" data-id="{{item._id}}">
 				<image class="item-img" src="{{item.img}}" />
 				<text class="title">{{item.name}}</text>
 			</view>

@@ -1,0 +1,6 @@
+<!--miniprogram/pages/item/item.wxml-->
+<view class="img-box">
+  <block wx:for="{{imgs}}" wx:key="{{item}}">
+  <image src="{{item}}" mode="widthFix" class="img"></image>
+  </block>
+</view>

@@ -1,0 +1,7 @@
+<!--component/price/index.wxml-->
+<view class="container" style="{{'font-family:'+family+';color:'+color}}">
+	<text class="prefix"  wx:if="{{prefix}}"  style="{{'font-size:'+prefixSize+'rpx'}}">¥</text>
+	<text class="amount"  style="{{'font-size:'+size+'rpx'}}">{{amount}}</text>
+	<text class="suffix" wx:if="{{showSuffix}}"  style="{{'font-size:'+suffixSize+'rpx'}}">.{{suffix}}</text>
+</view>
+

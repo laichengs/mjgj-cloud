@@ -3,6 +3,8 @@
 	<view class="swiper-wrap">
 		<swiper
 		 class="swiper"
+		 duration="300"
+		 interval="3000"
 		 autoplay="{{true}}"
 		 circular="{{true}}"
 		 bindchange="onBannerChange"
@@ -20,6 +22,6 @@
 		</view>
 	</view>
 	<item list="{{items}}" />
-	<theme list="{{theme}}" />
+	<theme theme="{{theme}}" />
 </view>
 

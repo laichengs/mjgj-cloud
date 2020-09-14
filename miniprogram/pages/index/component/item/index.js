@@ -21,5 +21,11 @@ Component({
   /**
    * 组件的方法列表
    */
-  methods: {},
+  methods: {
+    goToItem(e){
+      wx.navigateTo({
+        url: `/pages/item/item?id=${e.currentTarget.dataset.id}`
+      })
+    }
+  },
 });

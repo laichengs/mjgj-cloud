@@ -31,9 +31,9 @@ Page({
         this.setData({
           items: res.data,
         });
-        console.log(res);
       });
     const { data: theme } = await db.collection('theme').get();
+    console.log(theme)
     this.setData({
       theme,
     });

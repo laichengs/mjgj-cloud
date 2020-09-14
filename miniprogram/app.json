@@ -1,5 +1,8 @@
 {
-  "pages": ["pages/index/index"],
+  "pages": [
+    "pages/index/index",
+    "pages/item/item"
+  ],
   "window": {
     "backgroundColor": "#fff",
     "backgroundTextStyle": "light",
