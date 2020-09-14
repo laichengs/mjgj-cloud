@@ -1,0 +1,5 @@
+<!-- pages/index/component/theme/index.wxml -->
+<view class="container">
+	<h3>热门服务</h3>
+</view>
+

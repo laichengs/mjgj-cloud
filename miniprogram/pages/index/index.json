@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "item": "component/item/index",
+    "theme": "component/theme/index"
+  }
+}

@@ -1,0 +1,52 @@
+page {
+  padding: 30rpx 0;
+}
+.swiper-wrap {
+  width: 750rpx;
+  height: 220rpx;
+  position: relative;
+}
+.swiper {
+  width: 750rpx;
+  height: 220rpx;
+}
+.swiper-item {
+  width: 690rpx !important;
+  margin-left: 30rpx;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.banner-img {
+  width: 690rpx;
+  border-radius: 10rpx;
+  transform: scale(0.96, 0.85);
+  transition: all 0.2s;
+}
+.banner-img.active {
+  transform: scale(1, 1);
+}
+.indicator {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 20rpx;
+  z-index: 99;
+  display: flex;
+}
+.dot {
+  height: 14rpx;
+  width: 14rpx;
+  border-radius: 14rpx;
+  background: #eee;
+  transition: all 0.2s;
+}
+.dot:not(:last-child) {
+  margin-right: 10rpx;
+}
+.dot.active {
+  background: #fff;
+  width: 30rpx;
+}

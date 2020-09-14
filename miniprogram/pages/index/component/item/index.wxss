@@ -1,0 +1,24 @@
+/* pages/index/component/item/index.wxss */
+.item-img {
+  width: 100rpx;
+  height: 100rpx;
+}
+.box-title {
+  display: block;
+  margin: 40rpx 30rpx;
+}
+.box-list {
+  padding: 0 30rpx;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-auto-rows: 160rpx;
+}
+.title {
+  color: #666;
+  margin-top: 6rpx;
+}
+.item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
