@@ -78,6 +78,12 @@ page {
   flex: 1;
   text-align: right;
 }
+.choose-time{
+  color: #333;
+  flex: 1;
+  text-align: right;
+  font-weight: bold;
+}
 .c-btn-box {
   display: flex;
   align-items: center;
@@ -98,6 +104,12 @@ page {
   font-weight: bold;
 }
 
+.modal{
+  padding-bottom: 30rpx;
+}
+.modal.ipx{
+  padding-bottom: 60rpx;
+}
 .month-title {
   width: 690rpx;
   padding: 20rpx 0;
@@ -109,7 +121,6 @@ page {
 .date-title-box {
   width: 690rpx;
   display: flex;
-  padding: 16rpx 0;
 }
 .date-title-box.header {
   padding: 50rpx 0 20rpx 0;
@@ -122,14 +133,55 @@ page {
   font-size: 24rpx;
 }
 .date-item {
+  padding: 16rpx 0;
   font-size: 28rpx;
   font-family: Din;
   flex: 1;
+  display: block;
   display: flex;
   justify-content: center;
   color: #ddd;
 }
+
 .date-item.normal {
   color: #000;
   font-weight: bold;
+}
+.date-item.active{
+  color: #fff;
+  position: relative;
+}
+.date-item.active::after{
+  content:"";
+  width:50rpx;
+  height:50rpx;
+  border-radius: 50rpx;
+  background: var(--color);
+  position: absolute;
+  left:50%;
+  transform: translate(-50%,-50%);
+  z-index:-1;
+  top:50%;
+}
+
+.tiem-box{
+  width:690rpx;
+  display: flex;
+  justify-content: space-between;
+  /* padding:20rpx 0; */
+  margin-top:20rpx;
+  visibility: hidden;
+  transition: all .3s;
+  opacity: 0;
+}
+.tiem-box.active{
+  visibility: visible;
+  opacity: 1;
+}
+.time{
+  display: inline-block;
+  padding:10rpx 50rpx;
+  background:var(--color);
+  border-radius: 30rpx;
+  color:#fff;
 }

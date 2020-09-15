@@ -9,6 +9,7 @@ Component({
         type:Boolean,
         value: false,
         observer:function(newVal,oldVal){
+          console.log(newVal)
           this.setData({
             show: newVal
           })

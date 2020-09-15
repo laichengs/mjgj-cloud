@@ -1,4 +1,8 @@
+const OrderModel = require("../../API/order");
+const { createSerialNo } = require("../../utils");
+
 // miniprogram/pages/order/order.js
+const model =     new OrderModel();
 const app = getApp();
 Page({
   /**
@@ -7,6 +11,9 @@ Page({
   data: {
     color: app.globalData.color,
     ipx: app.globalData.ipx,
+    orderTime:"",
+    currentId:"",
+    isShow:false,
     img: '',
     title: '',
     price: 0,
@@ -15,6 +22,7 @@ Page({
     detail: '',
     name: '',
     phone: '',
+    times:["09:00","11:00","13:00","16:00"],
     weeks: ['日', '一', '二', '三', '四', '五', '六'],
   },
 
@@ -22,13 +30,12 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    // this.init(options.id);
+    this.init(options.id);
     this.initDate();
   },
   async init(id) {
     const db = wx.cloud.database();
     const { data: item } = await db.collection('item').doc(id).get();
-    console.log(item);
     this.setData({
       img: item.main_img,
       title: item.name,
@@ -57,9 +64,8 @@ Page({
     let month = time.getMonth();
     let date = time.getDate();
     let day = time.getDay();
-    let first = time.getDate() - day;
     let dates = [];
-    for (let i = 0; i < 22; i++) {
+    for (let i = 0; i < 30; i++) {
       let d = new Date(year, month, date + i).getDate();
       let w = new Date(year, month, date + i).getDay();
       //第一个非周日
@@ -89,6 +95,7 @@ Page({
           date: d,
           week: w,
           status: 1,
+          id:i+1
         });
       }
       //代表已跨越
@@ -99,6 +106,7 @@ Page({
           date: d,
           week: w,
           status: 1,
+          id:i+1
         });
       }
     }
@@ -112,59 +120,114 @@ Page({
       });
     });
     days.map((v) => {
-      let kk = [];
-      // let count =
-      //   v.dates[0].week != 0 && v.dates.length % 7 == 0
-      //     ? Math.ceil(v.dates.length / 7) + 1
-      //     : Math.ceil(v.dates.length / 7);
-      let count = Math.ceil(v.dates.length / 7);
-      let tmp = [];
-      for (let i = 0; i < count; i++) {
-        let td = v.dates.slice(i * 7, (i + 1) * 7);
-        if (td.length < 7) {
-          //往后补
-          if (td[0].week == 0) {
-            let len = td.length;
-            for (let m = 1; m <= 7 - len; m++) {
-              td.push({
-                month: v.month,
-                date: '',
-                status: 2,
-                week: td[len - 1].week + m,
-              });
-            }
-          } else {
-            let index = td.findIndex((v) => v.week == 6);
-            kk = td.slice(index);
-            td = td.slice(0, index);
-            console.log(index);
-            console.log(td.slice(0, index));
-            for (let m = td[0].week - 1; m >= 0; m--) {
-              td.unshift({
-                month: v.month,
-                date: '',
-                status: 2,
-                week: m,
-              });
-            }
-            for (let k = 1; k <= 7 - kk.length; k++) {
-              kk.push({
-                month: v.month,
-                date: '',
-                status: 2,
-                week: kk[kk.length - 1].week + k,
-              });
-            }
-            console.log(td);
-          }
+      const dates = v.dates
+      let week = []
+      //判断第一个是否是0
+      if(dates[0].week==0){
+        week = this.cancel(dates)
+      }else{
+        let first = dates[0]
+        let firstLen = 7-first.week;
+        let firstWeek = dates.slice(0,firstLen)
+        for(let f=first.week-1;f>=0;f--){
+          firstWeek.unshift({
+            year: firstWeek[0].year,
+            month: firstWeek[0].month-1,
+            date: "",
+            week: f,
+            status: 2,
+          })
         }
-        tmp.push(td);
-        tmp.push(kk);
+        week.push(firstWeek)
+        week.push(...this.cancel(dates.slice(firstLen)))
       }
-      v.week = tmp;
+      v.week = week;
       return v;
     });
-    console.log(days);
-    this.setData({ days });
+    this.setData({ days,dates });
   },
+  cancel(dates){
+    let kk = [];
+    let count = Math.ceil(dates.length/7)
+    let remain = dates.length%7
+    for(let c=0;c<count;c++){
+      if(remain==0){
+        kk.push(dates.slice(c*7,(c+1)*7))
+      }else{
+        if(c<count-1){
+          kk.push(dates.slice(c*7,(c+1)*7))
+        }else{
+          let tmp = dates.slice(c*7,(c+1)*7)
+          let last = tmp[tmp.length-1]
+          for(let r=1;r<=7-remain;r++){
+            tmp.push({
+              year: last.year,
+              month: last.month,
+              date: "",
+              week: last.week+r,
+              status: 2,
+            })
+          }
+          kk.push(tmp)
+        }
+      }
+    }
+    return kk;
+  },
+  onChooseDate(e){
+    this.setData({
+      currentId: e.currentTarget.dataset.id
+    })
+  },
+  showTimeBox(){
+    this.setData({
+      isShow:true
+    })
+  },
+  chooseTime(e){
+    const date = this.data.dates.find(v=>v.id==this.data.currentId)
+    const time= e.currentTarget.dataset.time;
+    const month = date.month.toString().padStart(2,"0")
+    this.setData({
+      orderTime: `${date.year}-${month}-${date.date}(周${this.data.weeks[date.week]}) ${time}`,
+      isShow:false
+    })
+  },
+  close(){
+    this.setData({
+      currentId:"",
+      isShow:false
+    })
+  },
+  async submit(){
+    if(this.data.orderTime==""){
+      wx.showToast({
+        title:"请选择时间",
+        icon:"none"
+      })
+      return 
+    }
+    if(this.data.name==""){
+      wx.showToast({
+        title:"请选择地址",
+        icon:"none"
+      })
+      return 
+    }
+   const serialNo =  createSerialNo();
+    const params = {
+      serial_no:serialNo,
+      item_name:this.data.title,
+      price:this.data.price,
+      total: this.data.price,
+      count:1,
+      name: this.data.name,
+      address: this.data.city+this.data.county+this.data.detail,
+      order_time: new Date(this.data.orderTime.replace(/(\d{4})-(\d{2})-(\d{2}).{4}(\d{2}):(\d{2})/,"$1/$2/$3 $4:$5:00")),
+      status:1,
+      remark:"测试的"
+    }
+    const result = await model.createOrder(params)
+    console.log(result)
+  }
 });

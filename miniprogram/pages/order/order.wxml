@@ -1,5 +1,5 @@
 <!-- miniprogram/pages/order/order.wxml -->
-<!-- <view class="container">
+<view class="container">
   <view class="box" bindtap="chooseAddress">
     <view class="address-show" wx:if="{{city!=''}}">
       <text class="county">{{city+county}}</text>
@@ -22,40 +22,49 @@
   </view>
   <view class="box" bindtap="showTimeBox">
     <text class="label">服务时间</text>
-    <text class="less-time">请选择服务时间</text>
-    <image src="image/arrow.png" class="arrow" mode="widthFix"></image>
+    <block wx:if="{{orderTime==''}}">
+      <text class="less-time">请选择服务时间</text>
+      <image src="image/arrow.png" class="arrow" mode="widthFix"></image>
+    </block>
+    <block wx:else>
+      <text class="choose-time">{{orderTime}}</text>
+    </block>
   </view>
   <view class="box">
     <text class="label">服务备注</text>
     <text class="less-time">请输入备注</text>
   </view>
-</view> -->
+</view>
 <view class="btn-box c-btn-box {{ipx?'ipx':''}}">
   <text class="price-title">合计：</text>
   <price value="{{price}}" size="38" color="{{color}}"></price>
-  <view class="btn c-btn round">提交订单</view>
+  <view class="btn c-btn round" bindtap="submit">提交订单</view>
 </view>
-<popup isShow="{{true}}" title="请选择时间">
-  <view class="modal">
+<popup isShow="{{isShow}}" title="请选择时间" bind:close="close">
+  <view class="modal {{ipx?'ipx':''}}">
     <view class="date-title-box header">
       <block wx:for="{{weeks}}" wx:key="{{item}}">
         <text class="date-title-item">{{item}}</text>
       </block>
     </view>
-    <scroll-view scroll-y="{{true}}" style="height:500rpx;">
+    <scroll-view scroll-y="{{true}}" class="scroll" style="height:430rpx;">
       <view class="day-box">
         <block wx:for="{{days}}" wx:key="{{item.month}}">
           <text class="month-title">{{item.year}}年{{item.month}}月</text>
           <block wx:for="{{item.week}}" wx:for-item="detail" wx:for-index="idx">
-            <!-- <text>变量：{{detail}}</text> -->
             <view class="date-title-box">
               <block wx:for="{{detail}}" wx:for-item="info">
-                <text class="date-item {{info.status==1?'normal':''}}">{{info.date}}</text>
+                <text bindtap="{{info.id?'onChooseDate':''}}" data-id="{{info.id}}" class="date-item {{info.status==1?'normal':''}} {{currentId==info.id?'active':''}}">{{info.date}}</text>
               </block>
             </view>
           </block>
         </block>
       </view>
     </scroll-view>
+    <view class="tiem-box {{currentId>0?'active':''}}">
+      <block wx:for="{{times}}" wx:key="{{item}}">
+        <text class="time" bindtap="chooseTime" data-time="{{item}}">{{item}}</text>
+      </block>
+    </view>
   </view>
 </popup>
