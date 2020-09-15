@@ -1,0 +1,9 @@
+{
+  "usingComponents": {
+    "price": "/components/price/index",
+    "popup": "/components/popup/index"
+  },
+  "backgroundColor": "#ffffff",
+  "navigationBarBackgroundColor": "#f8f8f8",
+  "navigationBarTitleText": "预约订单"
+}

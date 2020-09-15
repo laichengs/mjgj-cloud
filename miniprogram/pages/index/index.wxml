@@ -1,27 +1,21 @@
 <!-- index.wxml -->
+<!-- <import src="index.skeleton.wxml" />
+<template is="skeleton" wx-if="{{loading}}" /> -->
 <view class="container">
-	<view class="swiper-wrap">
-		<swiper
-		 class="swiper"
-		 duration="300"
-		 interval="3000"
-		 autoplay="{{true}}"
-		 circular="{{true}}"
-		 bindchange="onBannerChange"
-		>
-			<block wx:for="{{banners}}" wx:key="{{item.id}}">
-				<swiper-item class="swiper-item">
-					<image src="{{item.img}}" mode="widthFix" class="banner-img {{currentBanner==index?'active':''}}" />
-				</swiper-item>
-			</block>
-		</swiper>
-		<view class="indicator">
-			<block wx:for="{{banners}}" wx:key="{{item.title}}">
-				<view class="dot {{currentBanner==index?'active':''}}" />
-			</block>
+		<view class="swiper-wrap">
+				<swiper class="swiper" duration="300" interval="3000" autoplay="{{true}}" circular="{{true}}" bindchange="onBannerChange">
+						<block wx:for="{{banners}}" wx:key="{{item.id}}">
+								<swiper-item class="swiper-item">
+										<image src="{{item.img}}" mode="widthFix" class="banner-img {{currentBanner==index?'active':''}}" />
+								</swiper-item>
+						</block>
+				</swiper>
+				<view class="indicator">
+						<block wx:for="{{banners}}" wx:key="{{item.title}}">
+								<view class="dot {{currentBanner==index?'active':''}}" />
+						</block>
+				</view>
 		</view>
-	</view>
-	<item list="{{items}}" />
-	<theme theme="{{theme}}" />
+		<item list="{{items}}" />
+		<theme theme="{{theme}}" />
 </view>
-

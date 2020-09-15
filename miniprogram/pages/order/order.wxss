@@ -1,0 +1,135 @@
+/* miniprogram/pages/order/order.wxss */
+@import '../../font.wxss';
+page {
+  background: #f8f8f8;
+}
+.container {
+  padding: 30rpx;
+  box-sizing: border-box;
+}
+.item-box {
+  margin: 30rpx 0;
+  background: #fff;
+  padding: 20rpx;
+  box-sizing: border-box;
+  border-radius: 12rpx;
+  display: grid;
+  grid-template-areas:
+    'a b c '
+    'a . d';
+  grid-template-columns: 150rpx auto 100rpx;
+}
+.item-title {
+  font-weight: bold;
+  font-size: 28rpx;
+}
+.item-img {
+  border-radius: 8rpx;
+  grid-area: a;
+  width: 120rpx;
+  height: 120rpx;
+}
+.price-box {
+  justify-self: flex-end;
+  grid-area: c;
+}
+.count {
+  justify-self: flex-end;
+  grid-area: d;
+  color: #666;
+}
+
+.box {
+  margin-bottom: 30rpx;
+  padding: 30rpx;
+  box-sizing: border-box;
+  background: #fff;
+  border-radius: 12rpx;
+  display: flex;
+  align-items: center;
+  box-shadow: 0 6px 12px 0 rgba(200, 200, 200, 0.1);
+}
+.address-show {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+.county {
+  font-size: 28rpx;
+}
+.detail {
+  margin: 16rpx 0;
+  font-size: 36rpx;
+  font-weight: bold;
+}
+.phone {
+  font-weight: bold;
+  margin-left: 20rpx;
+}
+.name {
+  font-weight: bold;
+}
+.arrow {
+  margin-left: 10rpx;
+  width: 24rpx;
+}
+.less-time {
+  color: #999;
+  flex: 1;
+  text-align: right;
+}
+.c-btn-box {
+  display: flex;
+  align-items: center;
+  padding-left: 30rpx;
+  padding-right: 30rpx;
+  box-sizing: border-box;
+  align-items: baseline;
+  /* justify-content: space-between; */
+  width: 750rpx;
+}
+.c-btn {
+  width: 300rpx !important;
+  margin-left: auto;
+}
+.price-title {
+  font-size: 28rpx;
+  color: #000;
+  font-weight: bold;
+}
+
+.month-title {
+  width: 690rpx;
+  padding: 20rpx 0;
+  text-align: center;
+  display: block;
+  font-size: 24rpx;
+  color: #999;
+}
+.date-title-box {
+  width: 690rpx;
+  display: flex;
+  padding: 16rpx 0;
+}
+.date-title-box.header {
+  padding: 50rpx 0 20rpx 0;
+}
+.date-title-item {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  color: #999;
+  font-size: 24rpx;
+}
+.date-item {
+  font-size: 28rpx;
+  font-family: Din;
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  color: #ddd;
+}
+.date-item.normal {
+  color: #000;
+  font-weight: bold;
+}

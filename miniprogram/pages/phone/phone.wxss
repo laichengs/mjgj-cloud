@@ -1,0 +1,174 @@
+/* pages/phone/phone.wxss */
+
+page {
+  padding: 30rpx;
+  box-sizing: border-box;
+}
+
+.title {
+  padding: 100rpx 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.title-one {
+  padding-top: 100rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding-bottom: 50rpx;
+}
+
+.logo {
+  width: 150rpx;
+  height: 150rpx;
+  margin-bottom: 20rpx;
+}
+
+.title-name {
+  font-size: 38rpx;
+  color: #000;
+  font-weight: bold;
+  letter-spacing: 2rpx;
+}
+.des {
+  display: inline-block;
+  padding: 80rpx 50rpx 0 50rpx;
+  line-height: 1.6;
+  box-sizing: border-box;
+  color: #999;
+}
+
+.wx-btn {
+  border: none;
+  background: #50b674 !important;
+  width: 630rpx !important;
+  margin-left: 30rpx;
+  border: none !important;
+}
+
+.wechat {
+  width: 60rpx;
+  height: 60rpx;
+}
+
+.we-txt {
+  margin-left: 10rpx;
+  font-size: 32rpx;
+  color: #fff;
+}
+
+.sms-btn {
+  color: #666;
+  border: none;
+  outline: 0;
+  height: 100rpx;
+  font-size: 26rpx;
+  border: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 0px;
+  background: #fff;
+}
+.sms-btn::after {
+  border: 0;
+}
+
+.top {
+  padding: 30rpx 30rpx 0 30rpx;
+}
+
+.close-img {
+  width: 30rpx;
+  height: 30rpx;
+}
+
+.modal-content {
+  padding: 50rpx 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.h1 {
+  font-size: 50rpx;
+  letter-spacing: 5rpx;
+  color: #000;
+  padding: 30rpx;
+}
+
+.h2 {
+  font-size: 30rpx;
+  padding-bottom: 30rpx;
+}
+
+.input-box {
+  width: 80%;
+  /* background: #50B674; */
+  display: flex;
+  align-items: center;
+  position: relative;
+  height: 100rpx;
+  border-bottom: 1rpx solid #ccc;
+}
+
+.input-label {
+  font-size: 30rpx;
+  letter-spacing: 2rpx;
+  color: #000;
+}
+
+.input {
+  /* background: #50B674; */
+  margin-left: 80rpx;
+}
+
+.get-code {
+  position: absolute;
+  right: 0;
+  border: 0;
+  display: flex;
+  height: 50rpx;
+  font-size: 26rpx;
+  line-height: 50rpx;
+  top: 50%;
+  transform: translateY(-50%);
+  background: #e03a51;
+  border-radius: 0;
+  color: #fff;
+}
+
+.time-box {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  border: 0;
+  display: flex;
+  height: 50rpx;
+  font-size: 26rpx;
+  line-height: 50rpx;
+  background: #eee;
+  border-radius: 0;
+  color: #000;
+}
+
+.send-box {
+  width: 80%;
+  margin-top: 60rpx;
+}
+
+.login-btn {
+  background: #e03a51;
+  border-radius: 1rpx;
+  border: none;
+  opacity: 0.5;
+  color: #fff;
+}
+
+.btn-enable {
+  opacity: 1;
+}

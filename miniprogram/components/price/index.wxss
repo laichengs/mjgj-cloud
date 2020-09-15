@@ -1,9 +1,9 @@
 /* component/price/index.wxss */
-@import "../../font.wxss";
-.container{
+@import '../../font.wxss';
+.container {
   display: flex;
-  align-items: flex-end;
+  align-items: baseline;
 }
-.prefix{
+.prefix {
   margin-right: 5rpx;
 }

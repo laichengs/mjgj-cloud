@@ -1,0 +1,21 @@
+<!-- pages/phone/phone.wxml -->
+<view class="auth" wx:if="{{!isAuth}}">
+		<view class="title-one">
+				<image src="image/logo-full.png" class="logo" />
+				<text class="title-name">美好生活 今天开始</text>
+				<text class="des">您暂未授权美今管家小程序获取你的信息，将无法正常使用小程序的功能。如需要正常使用，请点击“授权”按钮，打开头像，昵称等信息的授权。</text>
+		</view>
+		<view>
+				<button class="btn" open-type="getUserInfo" bindgetuserinfo="bindUserInfo">授权获取用户昵称</button>
+		</view>
+</view>
+<view wx:else>
+		<view class="title">
+				<image src="image/logo-full.png" class="logo" />
+				<text class="title-name">美好生活 今天开始</text>
+		</view>
+		<view>
+				<button class="btn" open-type="getPhoneNumber" bindgetphonenumber="bindPhoneNumber">微信授权登录</button>
+				<!-- <button class="sms-btn" bindtap='showSmsBox'>手机号码登录/注册</button> -->
+		</view>
+</view>

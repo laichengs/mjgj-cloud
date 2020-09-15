@@ -1,6 +1,19 @@
-<!--miniprogram/pages/item/item.wxml-->
-<view class="img-box">
-  <block wx:for="{{imgs}}" wx:key="{{item}}">
-  <image src="{{item}}" mode="widthFix" class="img"></image>
-  </block>
+<!-- miniprogram/pages/item/item.wxml -->
+<view class="container">
+		<image src="{{mainImg}}" class="main" mode="widthFix" />
+		<view class="box">
+				<view class="price-box">
+						<price value="{{price}}" size="48" color="{{color}}" />
+						<text class="unit">/{{unit}}</text>
+				</view>
+				<h3 class="name">{{name}}</h3>
+				<!-- <text class="des">专业清洗 更值得信赖</text> -->
+		</view>
+		<!-- <view class="line" /> -->
+		<block wx:for="{{imgs}}" wx:key="{{item}}">
+				<image src="{{item}}" mode="widthFix" class="img" />
+		</block>
+		<view class="btn-box {{ipx?'ipx':''}}">
+				<button class="btn  round btn-shadow " bindtap="goToOrder">立即预约</button>
+		</view>
 </view>
