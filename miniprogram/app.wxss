@@ -6,7 +6,52 @@ h3 {
   color: #000;
   font-weight: bold;
 }
-page{
-  --color:#e03a51;
+page {
+  --color: #e03a51;
   --bg: #e03a51;
 }
+.line {
+  width: 750rpx;
+  height: 20rpx;
+  background: #f8f8f8;
+}
+.btn-box {
+  width: 100%;
+  background: #fff;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  /* height: 110rpx; */
+  padding: 20rpx 0rpx;
+}
+.btn-box.ipx {
+  padding-bottom: 60rpx;
+}
+.btn {
+  width: 690rpx !important;
+  background: linear-gradient(to right, #e03a51, #ce6977);
+  height: 90rpx;
+  color: #fff;
+  font-size: 32rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.btn-bg {
+  background: linear-gradient(to right, #e03a51, #ce6977);
+}
+.btn-fixed {
+  position: fixed;
+  left: 30rpx;
+  bottom: 30rpx;
+}
+.round {
+  border-radius: 90rpx;
+}
+.btn-shadow {
+  box-shadow: 0 6px 12px rgba(224, 58, 81, 0.3);
+}
+/* .ipx {
+  bottom: 80rpx;
+} */

@@ -22,10 +22,10 @@ Component({
    * 组件的方法列表
    */
   methods: {
-    goToItem(e){
+    goToItem(e) {
       wx.navigateTo({
-        url: `/pages/item/item?id=${e.currentTarget.dataset.id}`
-      })
-    }
+        url: `/pages/item/item?id=${e.currentTarget.dataset.id}`,
+      });
+    },
   },
 });

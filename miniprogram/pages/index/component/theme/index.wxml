@@ -1,24 +1,23 @@
 <!-- pages/index/component/theme/index.wxml -->
 <view class="container">
-	<h3 class="box-title">热门服务</h3>
-	<view class="box-list">
-		<block wx:for="{{theme}}" wx:key="{{item.id}}">
-			<view class="box" bindtap="goToItem" data-id="{{item.item_id}}">
-				<text class="top-tip">{{item.tip}}</text>
-				<view class="img-box">
-					<image src="{{item.left_img}}" class="left-img" />
-					<image src="{{item.right_top_img}}" class="right-top-img" />
-					<image src="{{item.right_bottom_img}}" class="right-bottom-img" />
-				</view>
-				<h3 class="title">{{item.name}}</h3>
-				<text class="des">{{item.describe}}</text>
-				<view class="bottom-box">
-					<price color="#e03a51" prefixSize="28" size="42" value="{{item.price}}"></price>
-					<text class="price-tip">{{item.price_tip}}</text>
-					<text class="btn">立即抢购</text>
-				</view>
-			</view>
-		</block>
-	</view>
+		<h3 class="box-title">热门服务</h3>
+		<view class="box-list">
+				<block wx:for="{{theme}}" wx:key="{{item.id}}">
+						<view class="box" bindtap="goToItem" data-id="{{item.item_id}}">
+								<text class="top-tip">{{item.tip}}</text>
+								<view class="img-box">
+										<image src="{{item.left_img}}" class="left-img" />
+										<image src="{{item.right_top_img}}" class="right-top-img" />
+										<image src="{{item.right_bottom_img}}" class="right-bottom-img" />
+								</view>
+								<h3 class="title">{{item.name}}</h3>
+								<text class="des">{{item.describe}}</text>
+								<view class="bottom-box">
+										<price color="#e03a51" prefixSize="28" size="42" value="{{item.price}}" />
+										<text class="price-tip">{{item.price_tip}}</text>
+										<text class="go-btn">立即抢购</text>
+								</view>
+						</view>
+				</block>
+		</view>
 </view>
-

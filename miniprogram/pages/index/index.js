@@ -3,6 +3,7 @@ const app = getApp();
 
 Page({
   data: {
+    loading: true,
     banners: [],
     items: [],
     theme: [],
@@ -33,9 +34,10 @@ Page({
         });
       });
     const { data: theme } = await db.collection('theme').get();
-    console.log(theme)
+    console.log(theme);
     this.setData({
       theme,
+      loading: false,
     });
   },
   onBannerChange(e) {

@@ -30,7 +30,7 @@
 	},
 	"appid": "wxf3474213feb99eb5",
 	"projectname": "cloud",
-	"libVersion": "2.8.1",
+	"libVersion": "2.12.2",
 	"simulatorType": "wechat",
 	"simulatorPluginLibVersion": {},
 	"cloudfunctionTemplateRoot": "cloudfunctionTemplate",
@@ -67,6 +67,20 @@
 					"id": -1,
 					"name": "pages/item/item",
 					"pathName": "pages/item/item",
+					"query": "id=ac5f38825f5f1f620184f1e50b474d1b",
+					"scene": null
+				},
+				{
+					"id": 2,
+					"name": "预约订单",
+					"pathName": "pages/order/order",
+					"query": "id=ac5f38825f5f1f620184f1e50b474d1b",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "授权",
+					"pathName": "pages/phone/phone",
 					"query": "id=ac5f38825f5f1f620184f1e50b474d1b",
 					"scene": null
 				}

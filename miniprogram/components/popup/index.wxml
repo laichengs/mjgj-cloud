@@ -1,0 +1,12 @@
+<!--component/popup/index.wxml-->
+<view class="container">
+	<view class="cover  {{show?'active':''}}" wx:if="{{show}}" bindtap="close" />
+	<view class="content {{show?'active':''}}">
+		<view class="top">
+			<text class="title">{{title}}</text>
+			<image src="image/close.png" class="close" bindtap="close" />
+		</view>
+		<slot/>
+	</view>
+</view>
+

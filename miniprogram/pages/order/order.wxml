@@ -1,0 +1,61 @@
+<!-- miniprogram/pages/order/order.wxml -->
+<!-- <view class="container">
+  <view class="box" bindtap="chooseAddress">
+    <view class="address-show" wx:if="{{city!=''}}">
+      <text class="county">{{city+county}}</text>
+      <text class="detail">{{detail}}</text>
+      <view class="person-info">
+        <text class="name">{{name}}</text>
+        <text class="phone">{{phone}}</text>
+      </view>
+    </view>
+    <h4 wx:if="{{city==''}}" style="flex:1;padding:20rpx 0;font-size:28rpx;">请选择地址</h4>
+    <image src="image/arrow.png" class="arrow" mode="widthFix"></image>
+  </view>
+  <view class="item-box">
+    <image class="item-img" src="{{img}}"></image>
+    <h4 class="item-title">{{title}}</h4>
+    <view class="price-box">
+      <price value="{{price}}" size="38"></price>
+    </view>
+    <text class="count">×1</text>
+  </view>
+  <view class="box" bindtap="showTimeBox">
+    <text class="label">服务时间</text>
+    <text class="less-time">请选择服务时间</text>
+    <image src="image/arrow.png" class="arrow" mode="widthFix"></image>
+  </view>
+  <view class="box">
+    <text class="label">服务备注</text>
+    <text class="less-time">请输入备注</text>
+  </view>
+</view> -->
+<view class="btn-box c-btn-box {{ipx?'ipx':''}}">
+  <text class="price-title">合计：</text>
+  <price value="{{price}}" size="38" color="{{color}}"></price>
+  <view class="btn c-btn round">提交订单</view>
+</view>
+<popup isShow="{{true}}" title="请选择时间">
+  <view class="modal">
+    <view class="date-title-box header">
+      <block wx:for="{{weeks}}" wx:key="{{item}}">
+        <text class="date-title-item">{{item}}</text>
+      </block>
+    </view>
+    <scroll-view scroll-y="{{true}}" style="height:500rpx;">
+      <view class="day-box">
+        <block wx:for="{{days}}" wx:key="{{item.month}}">
+          <text class="month-title">{{item.year}}年{{item.month}}月</text>
+          <block wx:for="{{item.week}}" wx:for-item="detail" wx:for-index="idx">
+            <!-- <text>变量：{{detail}}</text> -->
+            <view class="date-title-box">
+              <block wx:for="{{detail}}" wx:for-item="info">
+                <text class="date-item {{info.status==1?'normal':''}}">{{info.date}}</text>
+              </block>
+            </view>
+          </block>
+        </block>
+      </view>
+    </scroll-view>
+  </view>
+</popup>
