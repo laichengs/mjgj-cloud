@@ -6,7 +6,7 @@
 				<swiper class="swiper" duration="300" interval="3000" autoplay="{{true}}" circular="{{true}}" bindchange="onBannerChange">
 						<block wx:for="{{banners}}" wx:key="{{item.id}}">
 								<swiper-item class="swiper-item">
-										<image src="{{item.img}}" mode="widthFix" class="banner-img {{currentBanner==index?'active':''}}" />
+										<image src="{{item.img}}" bindtap="goToItem" data-id="{{item.item_id}}" mode="widthFix" class="banner-img {{currentBanner==index?'active':''}}" />
 								</swiper-item>
 						</block>
 				</swiper>

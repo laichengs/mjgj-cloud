@@ -17,16 +17,17 @@ page {
   grid-template-areas:
     'a b c '
     'a . d';
-  grid-template-columns: 150rpx auto 100rpx;
+  grid-template-columns: 200rpx auto 100rpx;
 }
 .item-title {
   font-weight: bold;
   font-size: 28rpx;
+  padding-left: 20rpx;
 }
 .item-img {
   border-radius: 8rpx;
   grid-area: a;
-  width: 120rpx;
+  width: 200rpx;
   height: 120rpx;
 }
 .price-box {
@@ -78,7 +79,7 @@ page {
   flex: 1;
   text-align: right;
 }
-.choose-time{
+.choose-time {
   color: #333;
   flex: 1;
   text-align: right;
@@ -104,10 +105,10 @@ page {
   font-weight: bold;
 }
 
-.modal{
+.modal {
   padding-bottom: 30rpx;
 }
-.modal.ipx{
+.modal.ipx {
   padding-bottom: 60rpx;
 }
 .month-title {
@@ -147,41 +148,46 @@ page {
   color: #000;
   font-weight: bold;
 }
-.date-item.active{
+.date-item.active {
   color: #fff;
   position: relative;
 }
-.date-item.active::after{
-  content:"";
-  width:50rpx;
-  height:50rpx;
+.date-item.active::after {
+  content: '';
+  width: 50rpx;
+  height: 50rpx;
   border-radius: 50rpx;
   background: var(--color);
   position: absolute;
-  left:50%;
-  transform: translate(-50%,-50%);
-  z-index:-1;
-  top:50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: -1;
+  top: 50%;
 }
 
-.tiem-box{
-  width:690rpx;
+.tiem-box {
+  width: 690rpx;
   display: flex;
   justify-content: space-between;
   /* padding:20rpx 0; */
-  margin-top:20rpx;
+  margin-top: 20rpx;
   visibility: hidden;
-  transition: all .3s;
+  transition: all 0.3s;
   opacity: 0;
 }
-.tiem-box.active{
+.tiem-box.active {
   visibility: visible;
   opacity: 1;
 }
-.time{
+.time {
   display: inline-block;
-  padding:10rpx 50rpx;
-  background:var(--color);
+  padding: 10rpx 50rpx;
+  background: var(--color);
   border-radius: 30rpx;
-  color:#fff;
+  color: #fff;
+}
+.ipt {
+  flex: 1;
+  font-size: 28rpx;
+  text-align: right;
 }

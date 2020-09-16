@@ -1,0 +1,34 @@
+/* component/tab/index.wxss */
+.header {
+  /* height:90rpx; */
+  border-bottom: 1rpx solid #eee;
+  display: flex;
+  position: relative;
+  position: sticky;
+  top: 0;
+  background: #fff;
+  z-index: 99;
+}
+.tab {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  flex: 1;
+}
+.tab.active {
+  color: #e03a51;
+  font-weight: bold;
+}
+.swiper {
+  transition: all 0.2s;
+  height: 6rpx;
+  border-radius: 20rpx;
+  background: #e03a51;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+}
+.content {
+  background: #f9f9f9;
+}

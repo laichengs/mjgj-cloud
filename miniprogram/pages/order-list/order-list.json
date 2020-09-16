@@ -1,3 +1,7 @@
 {
-  "usingComponents": {}
+  "usingComponents": {
+    "tab": "/components/tab/index",
+    "price": "/components/price/index"
+  },
+  "navigationBarTitleText": "订单列表"
 }

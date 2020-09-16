@@ -1,2 +1,70 @@
-<!--miniprogram/pages/my/my.wxml-->
-<text>miniprogram/pages/my/my.wxml</text>
+<loading wx:if="{{isLoading}}" />
+<view class="container">
+  <view class="top">
+    <image src="image/bg.png" class="card-bg" />
+    <view class="user" wx:if="{{phone!=''}}">
+      <view class="avatar {{info.color}}">
+        <open-data type="userAvatarUrl" />
+      </view>
+      <view class="nick-name {{info.color}}">
+        <open-data type="userNickName" />
+      </view>
+    </view>
+    <view class="user" wx:else bindtap="bindPhone">
+      <view class="user-avatar">
+        <image src="https://minicdn.meijinguanjia.com/loading.png" class="default-avatar" />
+      </view>
+      <text class="nick-name  {{info.color}}">点击登录</text>
+    </view>
+    <view class="member-classify">
+      <view class="member-item" bindtap='goToRecharge'>
+        <text class="member-num ">1221</text>
+        <text class="member-item-name">余额</text>
+      </view>
+      <view class="member-item" bindtap="goToCard">
+        <text class="member-num">23</text>
+        <text class="member-item-name">卡券</text>
+      </view>
+      <view class="member-item" bindtap='goToComboList'>
+        <text class="member-num">2</text>
+        <text class="member-item-name">套餐</text>
+      </view>
+      <view class="member-item" bindtap='goToPartnerCoupon'>
+        <text class="member-num">32</text>
+        <text class="member-item-name">商家代金券</text>
+      </view>
+    </view>
+  </view>
+  <view class="main">
+    <view class="main-item">
+      <view class="main-top">
+        <text class="main-title">我的订单</text>
+        <view class="show-more" bindtap='goToOrderLists' data-status="0">
+          <text class="show-more-title">查看全部订单</text>
+          <image src="image/arrow.png" class="arrow"></image>
+        </view>
+      </view>
+      <view class="main-lists">
+        <block wx:for="{{orders}}" wx:key="1">
+          <view class="main-detail" bindtap='goToOrderLists' data-status="{{index+1}}">
+            <image class="main-detail-img" src="{{item.img}}" />
+            <text class="main-detail-title">{{item.title}}</text>
+          </view>
+        </block>
+      </view>
+    </view>
+    <view class="main-item">
+      <view class="main-top">
+        <text class="main-title">常用功能</text>
+      </view>
+      <view class="main-lists">
+        <block wx:for="{{itemClassify}}" wx:key="1">
+          <view class="main-detail" bindtap="{{item.event}}">
+            <image class="main-detail-img" src="{{item.url}}" />
+            <text class="main-detail-title">{{item.title}}</text>
+          </view>
+        </block>
+      </view>
+    </view>
+  </view>
+</view>

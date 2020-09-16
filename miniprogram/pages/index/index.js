@@ -15,6 +15,7 @@ Page({
     db.collection('banner')
       .field({
         img: true,
+        item_id: true,
       })
       .get()
       .then((res) => {
@@ -34,7 +35,6 @@ Page({
         });
       });
     const { data: theme } = await db.collection('theme').get();
-    console.log(theme);
     this.setData({
       theme,
       loading: false,
@@ -43,6 +43,12 @@ Page({
   onBannerChange(e) {
     this.setData({
       currentBanner: e.detail.current,
+    });
+  },
+  goToItem(e) {
+    console.log(e);
+    wx.navigateTo({
+      url: `/pages/item/item?id=${e.currentTarget.dataset.id}`,
     });
   },
 });

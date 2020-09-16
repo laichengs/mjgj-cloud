@@ -83,6 +83,19 @@
 					"pathName": "pages/phone/phone",
 					"query": "id=ac5f38825f5f1f620184f1e50b474d1b",
 					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "订单列表",
+					"pathName": "pages/order-list/order-list",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "我的",
+					"pathName": "pages/my/my",
+					"scene": null
 				}
 			]
 		}

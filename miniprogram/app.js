@@ -23,15 +23,10 @@ App({
     var _this = this;
     wx.getSystemInfo({
       success(res) {
-        _this.globalData.StatusBar = res.statusBarHeight;
-        let custom = wx.getMenuButtonBoundingClientRect();
-        _this.globalData.Custom = custom;
-        _this.globalData.CustomBar =
-          custom.bottom + custom.top - res.statusBarHeight;
-        let tem = res.model;
+        _this.globalData.screenWidth = res.screenWidth;
         _this.globalData.height = (res.windowHeight * 750) / res.windowWidth;
         _this.globalData.scale = 750 / res.windowWidth;
-        if (tem.indexOf('iPhone X') > -1) {
+        if (res.model.indexOf('iPhone X') > -1) {
           _this.globalData.ipx = true;
         } else {
         }

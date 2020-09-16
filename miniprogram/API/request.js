@@ -1,6 +1,7 @@
 class Request {
   static CLOUD = wx.cloud;
   static DB = wx.cloud.database();
+  static _ = wx.cloud.database().command;
   constructor() {
     // this.cloud = wx.cloud
   }

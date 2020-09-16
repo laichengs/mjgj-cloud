@@ -85,6 +85,7 @@
   font-size: 24rpx;
   padding: 4rpx 6rpx;
   margin-left: 10rpx;
+  margin-bottom: 2rpx;
 }
 .go-btn {
   margin-left: auto;

@@ -1,66 +1,46 @@
-// miniprogram/pages/order-list/order-list.js
-Page({
+const OrderModel = require('../../API/order');
+const { formatTime } = require('../../utils');
 
+// miniprogram/pages/order-list/order-list.js
+const model = new OrderModel();
+Page({
   /**
    * 页面的初始数据
    */
   data: {
-
+    tabs: ['全部', '待付款', '待服务', '已取消'],
+    currentStatus: 0,
+    page: 1,
+    limit: 100,
   },
 
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad: function (options) {
-
+  onShow() {
+    this.init();
+  },
+  async init() {
+    wx.showLoading({
+      title: '加载中...',
+    });
+    const result = await model.getOrders({
+      status: this.data.currentStatus,
+      page: this.data.page,
+      limit: this.data.limit,
+    });
+    this.setData({
+      list: result.map((v) => {
+        v.createTime = formatTime(v.createTime);
+        console.log(v.orderTime);
+        v.orderTime = formatTime(v.order_time);
+        return v;
+      }),
+    });
+    wx.hideLoading();
   },
 
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
+  onChange(e) {
+    this.setData({
+      currentStatus: e.detail,
+    });
+    this.init();
   },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
-  }
-})
+});

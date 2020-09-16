@@ -13,7 +13,7 @@
     <image src="image/arrow.png" class="arrow" mode="widthFix"></image>
   </view>
   <view class="item-box">
-    <image class="item-img" src="{{img}}"></image>
+    <image class="item-img" src="{{img}}" mode="aspectFill"></image>
     <h4 class="item-title">{{title}}</h4>
     <view class="price-box">
       <price value="{{price}}" size="38"></price>
@@ -32,7 +32,7 @@
   </view>
   <view class="box">
     <text class="label">服务备注</text>
-    <text class="less-time">请输入备注</text>
+    <input type="text" class="ipt" bindinput="bindinput" placeholder="请输入备注" />
   </view>
 </view>
 <view class="btn-box c-btn-box {{ipx?'ipx':''}}">

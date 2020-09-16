@@ -1,0 +1,13 @@
+<!--component/tab/index.wxml-->
+<view class="container">
+	<view class="header" style="{{'height:'+height+'rpx'}}">
+		<block wx:for="{{tabs}}" wx:key="{{index}}">
+			<text class="tab {{currentIndex==index?'active':''}}" bindtap="changeTab" data-index='{{index}}'>{{item}}</text>
+		</block>
+		<view class="swiper" style="{{'width:'+width+'rpx;transform: translateX('+left+'rpx)'}}" />
+	</view>
+	<view class="content" style="{{'min-height:'+contentHeight+'rpx'}}">
+		<slot/>
+	</view>
+</view>
+

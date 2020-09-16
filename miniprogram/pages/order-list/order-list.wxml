@@ -1,2 +1,27 @@
-<!--miniprogram/pages/order-list/order-list.wxml-->
-<text>miniprogram/pages/order-list/order-list.wxml</text>
+<!-- miniprogram/pages/order-list/order-list.wxml -->
+<tab tabs="{{tabs}}" bind:change="onChange">
+  <view class="box">
+    <view class="order-list">
+      <block wx:for="{{list}}" wx:key="{{item.id}}" wx:if="{{list.length>0}}">
+        <view class="item">
+          <view class="title-box">
+            <image src="image/logo.png" class="title-img"></image>
+            <text class="create-time">下单时间：{{item.createTime}}</text>
+          </view>
+          <view class="item-box">
+            <image src="{{item.item[0].main_img}}" class="main-img" mode="aspectFill"></image>
+            <text class="item-title">{{item.item_name}}</text>
+            <text class="item-count">共1项服务</text>
+            <view class="item-price-box">
+              <text class="item-price">服务金额:</text>
+              <price value="{{item.total}}" size="38"></price>
+            </view>
+          </view>
+          <text class="time-box">预约时间：{{item.orderTime}}</text>
+          <text class="address-box">服务地点：{{item.address}}</text>
+        </view>
+      </block>
+      <view wx:if="{{list.length==0}}" class="no">暂无更多数据</view>
+    </view>
+  </view>
+</tab>
