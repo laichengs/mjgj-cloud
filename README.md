@@ -2,6 +2,4 @@
 
 美今管家云开发小程序
 
-## 参考文档
-
-- [云开发文档](https://developers.weixin.qq.com/miniprogram/dev/wxcloud/basis/getting-started.html)
+公司线上项目的部分云开发实现
