@@ -19,7 +19,7 @@ Page({
 
   onLoad(options) {
     this.setData({
-      url: options.url,
+      url: decodeURIComponent(options.url),
     });
     this.init();
   },
@@ -50,6 +50,7 @@ Page({
         icon: 'none',
       });
       setTimeout(() => {
+        console.log(this.data.url)
         wx.redirectTo({
           url: this.data.url,
         });

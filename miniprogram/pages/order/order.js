@@ -134,17 +134,17 @@ Page({
     if (result) {
       wx.showModal({
         title: '温馨提示',
-        content: '恭喜您，支付成功！',
+        content: '因云开发同一商户只支持一个小程序，故无法演示支付功能',
         confirmText: '查看',
         cancelText: '去首页',
         success(res) {
           if (res.confirm) {
             wx.switchTab({
-              url: '/pages/index/index',
+              url: '/pages/order-list/order-list',
             });
           } else {
             wx.switchTab({
-              url: '/pages/order-list/order-list',
+              url: '/pages/index/index',
             });
           }
         },

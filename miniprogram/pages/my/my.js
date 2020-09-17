@@ -1,4 +1,5 @@
 // miniprogram/pages/my/my.js
+const app = getApp();
 Page({
   /**
    * 页面的初始数据
@@ -6,31 +7,26 @@ Page({
   data: {
     itemClassify: [
       {
-        url: 'image/group.png',
-        title: '我的拼团',
-      },
-      {
-        url: 'image/convent.png',
-        title: '卡券兑换',
-      },
-      {
         url: 'image/address.png',
         title: '地址管理',
+        event: 'goToAddress',
       },
       {
         url: 'image/concat.png',
         title: '联系客服',
+        event: 'goToAddress',
       },
       {
         url: 'image/manage.png',
         title: '管理入口',
+        event: 'goToManage',
       },
     ],
     orders: [
       {
         id: 1,
         img: 'image/order@nopay.png',
-        title: '代付款',
+        title: '待付款',
       },
       {
         id: 2,
@@ -49,44 +45,24 @@ Page({
       },
     ],
   },
-
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad: function (options) {},
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {},
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {},
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {},
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {},
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {},
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {},
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {},
+  goToOrderLists(e) {
+    app.globalData.status = e.currentTarget.dataset.status;
+    wx.switchTab({
+      url: `/pages/order-list/order-list?status`,
+    });
+  },
+  goToManage() {
+    wx.navigateToMiniProgram({
+      appId: 'wx72599a6ae88a64d9',
+    });
+  },
+  goToAddress() {
+    wx.chooseAddress({});
+  },
+  goToShow() {
+    wx.showToast({
+      title: '演示数据',
+      icon: 'none',
+    });
+  },
 });

@@ -18,6 +18,13 @@ class UserModel extends Request {
     return result;
   }
   async addUserInfo(e) {
+    const info = await this.getUserByOpenid();
+    if(info.length>0&&info[0].avatar){
+      return {
+        avatar:info.avatar,
+        name:info.name
+      }
+    }
     const { avatarUrl, nickName } = await this.getUserInfo(e.detail.cloudID);
     try {
       const { _id: id } = await DB.collection('user').add({
@@ -35,6 +42,10 @@ class UserModel extends Request {
     }
   }
   async bindPhone(e) {
+    const info = await this.getUserByOpenid();
+    if(info[0].phone){
+      return info[0].phone
+    }
     const { phoneNumber } = await this.getUserInfo(e.detail.cloudID);
     try {
       await DB.collection('user')
@@ -46,7 +57,6 @@ class UserModel extends Request {
             phone: phoneNumber,
           },
         });
-      console.log(phoneNumber);
       return phoneNumber;
     } catch (error) {
       console.log(error);

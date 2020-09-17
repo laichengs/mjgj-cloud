@@ -1,4 +1,4 @@
-/* @import './index.skeleton.wxss'; */
+@import './index.skeleton.wxss';
 page {
   padding: 30rpx 0;
 }

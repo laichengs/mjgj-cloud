@@ -26,7 +26,8 @@
 		},
 		"useIsolateContext": true,
 		"useCompilerModule": false,
-		"userConfirmedUseCompilerModuleSwitch": false
+		"userConfirmedUseCompilerModuleSwitch": false,
+		"skeletonGenerateFilesWithoutConfirm": true
 	},
 	"appid": "wxf3474213feb99eb5",
 	"projectname": "cloud",

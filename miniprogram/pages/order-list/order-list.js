@@ -3,6 +3,7 @@ const { formatTime } = require('../../utils');
 
 // miniprogram/pages/order-list/order-list.js
 const model = new OrderModel();
+const app = getApp();
 Page({
   /**
    * 页面的初始数据
@@ -13,7 +14,7 @@ Page({
     page: 1,
     limit: 100,
   },
-
+  onLoad(options) {},
   onShow() {
     this.init();
   },

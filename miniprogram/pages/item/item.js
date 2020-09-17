@@ -41,7 +41,8 @@ Page({
     });
   },
   async goToOrder() {
-    let url = `/pages/order/order?id=${this.data.id}`;
+    let url = `/pages/order/order?id=${this.data.id}`
+    let encodeUrl = encodeURIComponent(`/pages/order/order?id=${this.data.id}`);
     const phone = wx.getStorageSync('phone');
     if (phone) {
       wx.navigateTo({
@@ -49,7 +50,7 @@ Page({
       });
     } else {
       wx.navigateTo({
-        url: `/pages/phone/phone?url=${url}`,
+        url: `/pages/phone/phone?url=${encodeUrl}`,
       });
     }
   },

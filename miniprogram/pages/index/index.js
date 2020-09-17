@@ -7,6 +7,7 @@ Page({
     banners: [],
     items: [],
     theme: [],
+    count: 0,
     currentBanner: 0,
   },
 
@@ -46,7 +47,6 @@ Page({
     });
   },
   goToItem(e) {
-    console.log(e);
     wx.navigateTo({
       url: `/pages/item/item?id=${e.currentTarget.dataset.id}`,
     });
