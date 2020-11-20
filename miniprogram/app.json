@@ -5,7 +5,8 @@
     "pages/my/my",
     "pages/order-list/order-list",
     "pages/order/order",
-    "pages/phone/phone"
+    "pages/phone/phone",
+    "pages/vip/vip"
   ],
   "tabBar": {
     "backgroundColor": "#ffffff",

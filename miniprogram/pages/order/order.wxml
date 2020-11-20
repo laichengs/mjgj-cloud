@@ -27,7 +27,7 @@
       <image src="image/arrow.png" class="arrow" mode="widthFix"></image>
     </block>
     <block wx:else>
-      <text class="choose-time">{{orderTime}}</text>
+      <text class="choose-time">{{date+" "+orderTime}}</text>
     </block>
   </view>
   <view class="box">

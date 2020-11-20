@@ -13,7 +13,7 @@
 								<h3 class="title">{{item.name}}</h3>
 								<text class="des">{{item.describe}}</text>
 								<view class="bottom-box">
-										<price color="#e03a51" prefixSize="28" size="42" value="{{item.price}}" />
+										<price prefixSize="28" color="{{color}}" size="42" value="{{item.price}}" />
 										<text class="price-tip">{{item.price_tip}}</text>
 										<text class="go-btn">立即抢购</text>
 								</view>

@@ -1,5 +1,5 @@
 // miniprogram/pages/my/my.js
-const app = getApp();
+const app = getApp()
 Page({
   /**
    * 页面的初始数据
@@ -46,23 +46,22 @@ Page({
     ],
   },
   goToOrderLists(e) {
-    app.globalData.status = e.currentTarget.dataset.status;
+    app.globalData.status = e.currentTarget.dataset.status
     wx.switchTab({
       url: `/pages/order-list/order-list?status`,
-    });
+    })
   },
   goToManage() {
     wx.navigateToMiniProgram({
       appId: 'wx72599a6ae88a64d9',
-    });
+    })
   },
   goToAddress() {
-    wx.chooseAddress({});
+    wx.chooseAddress({})
   },
   goToShow() {
-    wx.showToast({
-      title: '演示数据',
-      icon: 'none',
-    });
+    wx.navigateTo({
+      url: '/pages/vip/vip',
+    })
   },
-});
+})

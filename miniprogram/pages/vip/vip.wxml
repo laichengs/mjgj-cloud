@@ -1,0 +1,10 @@
+<!-- miniprogram/pages/vip/vip.wxml -->
+<view class="list-box">
+  <block wx:for="{{list}}" wx:key="{{index}}">
+    <view class="price-box {{currentIndex==index?'active':''}}" data-index="{{index}}" bindtap="bindPrice">
+      <text class="price-title">{{item.name}}</text>
+      <price value="{{item.amount}}" color="{{color}}" size="42"></price>
+    </view>
+  </block>
+</view>
+<view class="btn round left" bindtap="pay">立即开通</view>

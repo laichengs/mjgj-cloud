@@ -1,9 +1,8 @@
-const OrderModel = require('../../API/order');
-const { formatTime } = require('../../utils');
+const Request = require('../../API/request')
+const { formatTime } = require('../../utils')
 
-// miniprogram/pages/order-list/order-list.js
-const model = new OrderModel();
-const app = getApp();
+const model = new Request()
+const app = getApp()
 Page({
   /**
    * 页面的初始数据
@@ -16,32 +15,36 @@ Page({
   },
   onLoad(options) {},
   onShow() {
-    this.init();
+    this.init()
   },
   async init() {
     wx.showLoading({
       title: '加载中...',
-    });
-    const result = await model.getOrders({
-      status: this.data.currentStatus,
-      page: this.data.page,
-      limit: this.data.limit,
-    });
+    })
+    const result = await model.request({
+      name: 'order',
+      data: {
+        status: this.data.currentStatus,
+        page: this.data.page,
+        limit: this.data.limit,
+        action: 'fetch',
+      },
+    })
     this.setData({
       list: result.map((v) => {
-        v.createTime = formatTime(v.createTime);
-        console.log(v.orderTime);
-        v.orderTime = formatTime(v.order_time);
-        return v;
+        v.createTime = formatTime(v.createTime)
+        console.log(v.orderTime)
+        v.orderTime = formatTime(v.order_time)
+        return v
       }),
-    });
-    wx.hideLoading();
+    })
+    wx.hideLoading()
   },
 
   onChange(e) {
     this.setData({
       currentStatus: e.detail,
-    });
-    this.init();
+    })
+    this.init()
   },
-});
+})

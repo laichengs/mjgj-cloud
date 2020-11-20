@@ -1,4 +1,7 @@
 /* pages/index/component/item/index.wxss */
+.box {
+  margin-top: 50rpx;
+}
 .item-img {
   width: 100rpx;
   height: 100rpx;

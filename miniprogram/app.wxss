@@ -7,8 +7,13 @@ h3 {
   font-weight: bold;
 }
 page {
-  --color: #e03a51;
-  --bg: #e03a51;
+  /* --color: #db5651;
+  --bg: #db5651;
+  --less-bg: #faebed; */
+  --color: #db5651;
+  --bg: #db5651;
+  --less-bg: #faebed;
+  --less-color: #e98e8b;
 }
 .line {
   width: 750rpx;
@@ -30,16 +35,17 @@ page {
 }
 .btn {
   width: 690rpx !important;
-  background: linear-gradient(to right, #e03a51, #ce6977);
+  background: linear-gradient(to right, var(--less-color), var(--color));
   height: 90rpx;
   color: #fff;
   font-size: 32rpx;
   display: flex;
   align-items: center;
   justify-content: center;
+  font-weight: bold;
 }
 .btn-bg {
-  background: linear-gradient(to right, #e03a51, #ce6977);
+  background: linear-gradient(to right, var(--less-color), var(--color));
 }
 .btn-fixed {
   position: fixed;
@@ -50,8 +56,8 @@ page {
   border-radius: 90rpx;
 }
 .btn-shadow {
-  box-shadow: 0 6px 12px rgba(224, 58, 81, 0.3);
+  /* box-shadow: 0 6px 12px #ecdca0; */
 }
-/* .ipx {
-  bottom: 80rpx;
-} */
+.left {
+  margin-left: 30rpx;
+}

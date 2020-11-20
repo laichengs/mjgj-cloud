@@ -79,9 +79,9 @@
 }
 .price-tip {
   /* flex:1; */
-  border: 1rpx solid #da929c;
+  border: 1rpx solid var(--less-color);
   border-radius: 8rpx;
-  color: #e03a51;
+  color: var(--color);
   font-size: 24rpx;
   padding: 4rpx 6rpx;
   margin-left: 10rpx;
