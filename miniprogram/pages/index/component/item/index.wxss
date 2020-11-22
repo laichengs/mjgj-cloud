@@ -3,8 +3,8 @@
   margin-top: 50rpx;
 }
 .item-img {
-  width: 100rpx;
-  height: 100rpx;
+  width: 80rpx;
+  height: 80rpx;
 }
 .box-title {
   display: block;
@@ -13,12 +13,13 @@
 .box-list {
   padding: 0 30rpx;
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(5, 1fr);
   grid-auto-rows: 160rpx;
 }
 .title {
-  color: #666;
-  margin-top: 6rpx;
+  color: #333;
+  margin-top: 8rpx;
+  font-size:24rpx;
 }
 .item {
   display: flex;

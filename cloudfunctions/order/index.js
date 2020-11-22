@@ -9,10 +9,11 @@ exports.main = async (event, context) => {
   const wxContext = cloud.getWXContext()
   switch (event.action) {
     case 'fetch':
-      console.log('fecth')
       return fetch(event)
     case 'create':
       return create(event)
+    default:
+      return cb(event, wxContext.OPENID)
   }
 }
 
@@ -53,7 +54,7 @@ async function create(data) {
 }
 
 //支付回调
-async function cb(event) {
+async function cb(event, openid) {
   const {
     data: [order],
   } = await db
@@ -71,4 +72,28 @@ async function cb(event) {
         status: 2,
       },
     })
+  //2.发送订阅消息
+  cloud.openapi.subscribeMessage.send({
+    touser: openid,
+    templateId: 'FPcVmx3r9wP3jhhCQnHNXR8GRH3O2wtZNelj-nqnXm0',
+    page: "pages/order-list/order-list",
+    data: {
+      time1: {
+        value: "2020/09/22",
+      },
+      amount8: {
+        value: order.amount
+      },
+      thing3: {
+        value: "微信支付"
+      },
+      thing2: {
+        value: "皮沙发保养"
+      }
+    }
+  })
+  return {
+    errcode: 0,
+    errmsg: ''
+  }
 }

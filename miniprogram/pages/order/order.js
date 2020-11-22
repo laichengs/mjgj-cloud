@@ -1,5 +1,8 @@
 const Request = require('../../API/request')
-const { createSerialNo, initDate } = require('../../utils')
+const {
+  createSerialNo,
+  initDate
+} = require('../../utils')
 
 // miniprogram/pages/order/order.js
 const model = new Request()
@@ -38,7 +41,9 @@ Page({
   },
   async init(id) {
     const db = wx.cloud.database()
-    const { data: item } = await db.collection('item').doc(id).get()
+    const {
+      data: item
+    } = await db.collection('item').doc(id).get()
     this.setData({
       id,
       img: item.main_img,
@@ -92,6 +97,10 @@ Page({
     })
   },
   async submit() {
+    wx.requestSubscribeMessage({
+      tmplIds: ['FPcVmx3r9wP3jhhCQnHNXR8GRH3O2wtZNelj-nqnXm0'],
+      success(res) {}
+    })
     wx.showLoading({
       title: '订单支付中...',
     })
@@ -109,9 +118,9 @@ Page({
       })
       return
     }
-    const serialNo = createSerialNo()
+    //处理订单参数
     const params = {
-      serial_no: serialNo,
+      serial_no: createSerialNo(),
       item_name: this.data.title,
       price: this.data.price,
       total: this.data.price,
@@ -119,8 +128,7 @@ Page({
       name: this.data.name,
       address: this.data.city + this.data.county + this.data.detail,
       order_date: new Date(this.data.date),
-      order_time:
-        this.data.times.findIndex((v) => v == this.data.orderTime) + 1,
+      order_time: this.data.times.findIndex((v) => v == this.data.orderTime) + 1,
       item_id: this.data.id,
       createTime: new Date(),
       pay_type: 1,
@@ -133,20 +141,21 @@ Page({
       data: params,
       err: '订单创建失败',
     })
-    console.log(result)
-    const { payment } = await model.request({
+    //获取微信支付参数
+    const {
+      payment
+    } = await model.request({
       name: 'pay',
       data: result,
       err: '订单支付失败',
     })
-    console.log(payment)
-    //因同一商户无法接入多个小程序云开发支付，故模拟支付成功
+    //拉起微信支付
     wx.requestPayment({
       ...payment,
       success(res) {
         wx.showModal({
           title: '温馨提示',
-          content: '恭喜您支付预约成功',
+          content: '恭喜您预约成功',
           confirmText: '查看',
           cancelText: '去首页',
           success(res) {
